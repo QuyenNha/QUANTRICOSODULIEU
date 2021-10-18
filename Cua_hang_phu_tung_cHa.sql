@@ -278,3 +278,10 @@ update PHIEUNHAP
 set TongTien = ThanhTien + VAT
 from PHIEUNHAP join CHITIET_PN on PHIEUNHAP.MaPNH = CHITIET_PN.MaPNH
 select * from PHIEUNHAP
+
+--index
+Create INDEX idx_TenKH
+on KHACHHANG(TenKH)
+
+Create INDEX idx_MaHD
+on CHITIET_HD(MaHD)
