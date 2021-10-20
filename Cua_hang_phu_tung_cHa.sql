@@ -5,7 +5,7 @@ use CHPT
 create table LOAIHANG 
 (
 	MaLH	char(5),
-	TenLH	nvarchar(50),
+	TenLH	nvarchar(50) not null,
 	primary key(MaLH)
 )
 go
@@ -14,12 +14,12 @@ go
 create table HANG
 (
 	MaH		char(5),
-	TenH	nvarchar(50),
-	DonVi	nvarchar(10),
+	TenH	nvarchar(50) not null,
+	DonVi	nvarchar(10) not null,
 	HangSX	nvarchar(50), 
-	DonGiaNhap numeric(15,0),
-	DonGiaBan numeric(15,0),
-	MaLH	char(5),
+	DonGiaNhap numeric(15,0) not null,
+	DonGiaBan numeric(15,0) not null,
+	MaLH	char(5) not null,
 	primary key(MaH),
 	foreign key(MaLH) references LOAIHANG 
 )
@@ -29,8 +29,8 @@ go
 create table NHANVIEN 
 (
 	MaNV	char(5),
-	TenNV	nvarchar(50),
-	NgaySinh date,
+	TenNV	nvarchar(50) not null,
+	NgaySinh date not null,
 	DiaChi	nvarchar(150),
 	DienThoai varchar(12),
 	primary key(MaNV)
@@ -41,7 +41,7 @@ go
 create table KHACHHANG 
 (
 	MaKH	char(5),
-	TenKH	nvarchar(50),
+	TenKH	nvarchar(50) not null,
 	DiaChi	nvarchar(150),
 	DienThoai varchar(12),
 	primary key(MaKH)
@@ -52,9 +52,9 @@ go
 create table HOADON 
 (
 	MaHD	char(5), 
-	MaKH	char(5), 
-	MaNV	char(5), 
-	NgayBan date,
+	MaKH	char(5) not null, 
+	MaNV	char(5) not null, 
+	NgayBan date not null,
 	TongCong numeric(15,0),
 	primary key(MaHD),
 	foreign key(MaKH) references KHACHHANG,
@@ -67,7 +67,7 @@ create table CHITIET_HD
 (
 	MaHD	char(5), 
 	MaH		char(5), 
-	SoLuongBan int, 
+	SoLuongBan int not null, 
 	ThanhTien numeric(15,0),
 	primary key(MaHD, MaH),
 	foreign key(MaHD)references HOADON,
@@ -79,9 +79,9 @@ go
 create table NHACC 
 (
 	MaNCC	char(5), 
-	TenNCC	nvarchar(50), 
-	DienThoaiNCC varchar(12), 
-	DiaChiNCC nvarchar(150),
+	TenNCC	nvarchar(50) not null, 
+	DienThoaiNCC varchar(12) not null, 
+	DiaChiNCC nvarchar(150) not null,
 	primary key(MaNCC)
 )
 go
@@ -90,9 +90,9 @@ go
 create table PHIEUNHAP 
 (
 	MaPNH	char(5), 
-	MaNV	char(5), 
-	MaNCC	char(5), 
-	NgayNhap date, 
+	MaNV	char(5) not null, 
+	MaNCC	char(5) not null, 
+	NgayNhap date not null, 
 	VAT		numeric(15,0), 
 	TongTien numeric(15,0), 
 	TongCong numeric(15,0),
@@ -106,8 +106,8 @@ go
 create table CHITIET_PN 
 (
 	MaPNH	char(5),
-	MaH		char(5),
-	SoLuongNhap int,
+	MaH		char(5) not null,
+	SoLuongNhap int not null,
 	ThanhTien numeric(15,0),
 	primary key(MaPNH, MaH),
 	foreign key(MaPNH) references PHIEUNHAP,
@@ -279,9 +279,6 @@ set TongTien = ThanhTien + VAT
 from PHIEUNHAP join CHITIET_PN on PHIEUNHAP.MaPNH = CHITIET_PN.MaPNH
 select * from PHIEUNHAP
 
---index
-Create INDEX idx_TenKH
-on KHACHHANG(TenKH)
-
-Create INDEX idx_MaHD
-on CHITIET_HD(MaHD)
+--Tao Index--
+Create NonClustered Index idx_TenKH on KHACHHANG(TenKH)
+Create NonClustered Index idx_MaHD on CHITIET_HD(MaHD)
