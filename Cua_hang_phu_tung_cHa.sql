@@ -1,6 +1,15 @@
 ﻿create database CHPT
 use CHPT
 
+--Tao bang Tai khoan
+create table TAIKHOAN
+(
+	TaiKhoan varchar(15),
+	MatKhau varchar(15) not null,
+	primary key(TaiKhoan)
+)
+go
+
 --Tao bang Loai hang
 create table LOAIHANG 
 (
@@ -116,6 +125,11 @@ create table CHITIET_PN
 go
 
 --insert data
+insert into TAIKHOAN values ('quyen','123456')
+insert into TAIKHOAN values ('hoa','654321')
+insert into TAIKHOAN values ('la','789123')
+insert into TAIKHOAN values ('ngoc','123789')
+
 insert into LOAIHANG values ('LH001',N'Phụ tùng xe ô tô')
 insert into LOAIHANG values ('LH002',N'Phụ tùng xe bán tải')
 insert into LOAIHANG values ('LH003',N'Phụ tùng xe khách')
