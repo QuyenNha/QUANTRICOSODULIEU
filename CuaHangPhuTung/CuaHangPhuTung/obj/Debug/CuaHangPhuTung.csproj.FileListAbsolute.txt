@@ -1,0 +1,15 @@
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\bin\Debug\CuaHangPhuTung.exe.config
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\bin\Debug\CuaHangPhuTung.exe
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\bin\Debug\CuaHangPhuTung.pdb
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.csprojResolveAssemblyReference.cache
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.Properties.Resources.resources
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.csproj.GenerateResource.Cache
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.exe
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.pdb
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmHang.resources
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmHoaDon.resources
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmKhachHang.resources
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmNhaCC.resources
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmNhanVien.resources
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmPhieuNhap.resources
+C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.FrmMain.resources
