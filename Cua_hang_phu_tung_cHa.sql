@@ -26,6 +26,7 @@ create table HANG
 	TenH	nvarchar(50) not null,
 	DonVi	nvarchar(10) not null,
 	HangSX	nvarchar(50), 
+	HangTonKho int,
 	DonGiaNhap numeric(15,0) not null,
 	DonGiaBan numeric(15,0) not null,
 	MaLH	char(5) not null,
@@ -136,31 +137,31 @@ insert into LOAIHANG values ('LH003',N'Phụ tùng xe khách')
 insert into LOAIHANG values ('LH004',N'Phụ tùng xe tải chở hàng')
 insert into LOAIHANG values ('LH005',N'Phụ tùng xe chuyên dụng')
 
-insert into HANG values ('H0001',N'Lọc gió',N'chiếc',N'Việt Nam',1200000,14500000,'LH001')
-insert into HANG values ('H0002',N'Hộp số',N'bộ',N'Nhật Bản',631000,700000,'LH002')
-insert into HANG values ('H0003',N'Kính gió sau',N'tấm',N'Singapore',150000,200000,'LH003')
-insert into HANG values ('H0004',N'Đèn pha',N'chiếc',N'Đài Loan',337000,370000,'LH004')
-insert into HANG values ('H0005',N'Kính gió sau',N'tấm',N'Hoa Kỳ',148000,160000,'LH005')
-insert into HANG values ('H0006',N'Kính chắn gió',N'tấm',N'Việt Nam',1500000,17500000,'LH001')
-insert into HANG values ('H0007',N'Cổ góp hút',N'chiếc',N'Nhật Bản',111000,140000,'LH002')
-insert into HANG values ('H0008',N'Kính an toàn',N'tấm',N'Singapore',150000,180000,'LH003')
-insert into HANG values ('H0009',N'Kính an toàn',N'tấm',N'Đài Loan',100000,130000,'LH004')
-insert into HANG values ('H0010',N'Kính chiếu hậu',N'chiếc',N'Indo',70000,80000,'LH005')
-insert into HANG values ('H0011',N'Con trở điều hòa',N'con',N'Việt Nam',120000,1450000,'LH002')
-insert into HANG values ('H0012',N'Dàn lạnh',N'bộ',N'Nhật Bản',710000,750000,'LH002')
-insert into HANG values ('H0013',N'Dàn nóng',N'bộ',N'Singapore',750000,800000,'LH003')
-insert into HANG values ('H0014',N'Két nước',N'chiếc',N'Đài Loan',300000,350000,'LH003')
-insert into HANG values ('H0015',N'Giảm xốc',N'cái',N'Indo',148000,160000,'LH005')
-insert into HANG values ('H0016',N'Lọc ga điều hòa',N'cái',N'Thái Lan',172000,190000,'LH001')
-insert into HANG values ('H0017',N'Lốc điều hòa',N'cái',N'Việt Nam',800000,900000,'LH002')
-insert into HANG values ('H0018',N'Chắn bùn gầm',N'cái',N'Trung Quốc',550000,700000,'LH003')
-insert into HANG values ('H0019',N'Gioăng',N'chiếc',N'Việt Nam',174000,190000,'LH004')
-insert into HANG values ('H0020',N'Cản biến vị trí cốt máy',N'cái',N'Indo',400000,500000,'LH005')
-insert into HANG values ('H0021',N'Kèn Sò',N'chiếc',N'Việt Nam',105000,150000,'LH001')
-insert into HANG values ('H0022',N'Vỏ xe',N'chiếc',N'Nhật Bản',91000,120000,'LH002')
-insert into HANG values ('H0023',N'Ác quy khô',N'chiếc',N'Thái Lan',150000,170000,'LH003')
-insert into HANG values ('H0024',N'Rotuyn cân bằng',N'cái',N'Đài Loan',130000,170000,'LH004')
-insert into HANG values ('H0025',N'Kính gió sau',N'tấm',N'Việt Nam',148000,160000,'LH005')
+insert into HANG values ('H0001',N'Lọc gió',N'chiếc',N'Việt Nam',100,1200000,14500000,'LH001')
+insert into HANG values ('H0002',N'Hộp số',N'bộ',N'Nhật Bản',100,631000,700000,'LH002')
+insert into HANG values ('H0003',N'Kính gió sau',N'tấm',N'Singapore',100,150000,200000,'LH003')
+insert into HANG values ('H0004',N'Đèn pha',N'chiếc',N'Đài Loan',100,337000,370000,'LH004')
+insert into HANG values ('H0005',N'Kính gió sau',N'tấm',N'Hoa Kỳ',100,148000,160000,'LH005')
+insert into HANG values ('H0006',N'Kính chắn gió',N'tấm',N'Việt Nam',100,1500000,17500000,'LH001')
+insert into HANG values ('H0007',N'Cổ góp hút',N'chiếc',N'Nhật Bản',100,111000,140000,'LH002')
+insert into HANG values ('H0008',N'Kính an toàn',N'tấm',N'Singapore',100,150000,180000,'LH003')
+insert into HANG values ('H0009',N'Kính an toàn',N'tấm',N'Đài Loan',100,100000,130000,'LH004')
+insert into HANG values ('H0010',N'Kính chiếu hậu',N'chiếc',N'Indo',100,70000,80000,'LH005')
+insert into HANG values ('H0011',N'Con trở điều hòa',N'con',N'Việt Nam',100,120000,1450000,'LH002')
+insert into HANG values ('H0012',N'Dàn lạnh',N'bộ',N'Nhật Bản',100,710000,750000,'LH002')
+insert into HANG values ('H0013',N'Dàn nóng',N'bộ',N'Singapore',100,750000,800000,'LH003')
+insert into HANG values ('H0014',N'Két nước',N'chiếc',N'Đài Loan',100,300000,350000,'LH003')
+insert into HANG values ('H0015',N'Giảm xốc',N'cái',N'Indo',100,148000,160000,'LH005')
+insert into HANG values ('H0016',N'Lọc ga điều hòa',N'cái',N'Thái Lan',100,172000,190000,'LH001')
+insert into HANG values ('H0017',N'Lốc điều hòa',N'cái',N'Việt Nam',100,800000,900000,'LH002')
+insert into HANG values ('H0018',N'Chắn bùn gầm',N'cái',N'Trung Quốc',100,550000,700000,'LH003')
+insert into HANG values ('H0019',N'Gioăng',N'chiếc',N'Việt Nam',100,174000,190000,'LH004')
+insert into HANG values ('H0020',N'Cản biến vị trí cốt máy',N'cái',N'Indo',100,400000,500000,'LH005')
+insert into HANG values ('H0021',N'Kèn Sò',N'chiếc',N'Việt Nam',100,105000,150000,'LH001')
+insert into HANG values ('H0022',N'Vỏ xe',N'chiếc',N'Nhật Bản',100,91000,120000,'LH002')
+insert into HANG values ('H0023',N'Ác quy khô',N'chiếc',N'Thái Lan',100,150000,170000,'LH003')
+insert into HANG values ('H0024',N'Rotuyn cân bằng',N'cái',N'Đài Loan',100,130000,170000,'LH004')
+insert into HANG values ('H0025',N'Kính gió sau',N'tấm',N'Việt Nam',100,148000,160000,'LH005')
 
 insert into NHANVIEN values ('NV001',N'Trần Đỗ Hòa','2001/07/09',N'84 Nguyễn Phúc Nguyên, Hương Hòa, Thành phố Huế, Thừa Thiên Huế','0762548324')
 insert into NHANVIEN values ('NV002',N'Chế Thị Nhã Quyên','2001/07/31' ,N'Tổ dân phố An Đô, Hương Chữ, Hương Trà, Thừa Thiên Huế' ,'0344463107')
@@ -269,6 +270,19 @@ insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN013','H0013',8)
 insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN014','H0021',5)
 insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN015','H0014',6)
 
+
+select * from HANG
+select * from KHACHHANG
+select * from HOADON
+select * from LOAIHANG
+select * from PHIEUNHAP
+select * from CHITIET_PN
+
+--Update hàng tồn kho
+update Hang
+set HangTonKho=SoLuongNhap-SoLuongBan
+from CHITIET_PN join CHITIET_HD on CHITIET_PN.MaH=CHITIET_HD.MaH
+
 --Update cot thanh tien bang Chi tiet Hoa don
 update CHITIET_HD
 set ThanhTien = SoLuongBan * DonGiaBan
@@ -296,3 +310,13 @@ select * from PHIEUNHAP
 --Tao Index--
 Create NonClustered Index idx_TenKH on KHACHHANG(TenKH)
 Create NonClustered Index idx_MaHD on CHITIET_HD(MaHD)
+
+
+--Tạo trigger
+/*1.Trigger ở bảng Chitietphieunhap
+Mỗi lần thêm sửa xóa bảng Chitietphieunhap
+Cập nhập lại bảng Hang: Hangtonkho = hangtonkho + soluongnhap(chitietphieunhap)
+2.Trigger ở bảng HoaDon
+Mỗi lần thêm sửa xóa bảng Chitiethoadon
+Cập nhập lại bảng Hang: Hangtonkho = hangtonkho - soluongban(chitiethoadon)
+*/
