@@ -320,3 +320,49 @@ Cập nhập lại bảng Hang: Hangtonkho = hangtonkho + soluongnhap(chitietphi
 Mỗi lần thêm sửa xóa bảng Chitiethoadon
 Cập nhập lại bảng Hang: Hangtonkho = hangtonkho - soluongban(chitiethoadon)
 */
+
+CREATE TRIGGER trg_BanHang 
+ON CHITIET_HD 
+AFTER INSERT 
+AS 
+BEGIN
+	UPDATE HANG
+	SET HangTonKho = HangTonKho - (
+		SELECT SoLuongBan
+		FROM inserted
+		WHERE MaH = HANG.MaH
+	)
+	FROM HANG
+	JOIN inserted ON HANG.MaH = inserted.MaH
+END
+GO
+
+
+Alter TRIGGER trg_HuyBanHang 
+ON CHITIET_HD 
+FOR DELETE AS 
+BEGIN
+	UPDATE HANG
+	SET HangTonKho = HangTonKho + (
+		SELECT SoLuongBan
+		FROM deleted
+		WHERE MaH = HANG.MaH
+	)
+	FROM HANG
+	JOIN deleted  ON HANG.MaH = deleted.MaH
+END
+
+CREATE TRIGGER trg_CapNhatDatHang on CHITIET_HD after update AS
+BEGIN
+   UPDATE HANG SET HangTonKho = HangTonKho -
+	   (SELECT SoLuongBan FROM inserted WHERE MaH = HANG.MaH) +
+	   (SELECT SoLuongBan FROM deleted WHERE MaH = HANG.MaH)
+   FROM HANG 
+   JOIN deleted ON HANG.MaH = deleted.MaH
+end
+
+
+
+
+
+
