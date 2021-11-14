@@ -311,7 +311,6 @@ select * from PHIEUNHAP
 Create NonClustered Index idx_TenKH on KHACHHANG(TenKH)
 Create NonClustered Index idx_MaHD on CHITIET_HD(MaHD)
 
-
 --Tạo trigger
 /*1.Trigger ở bảng Chitietphieunhap
 Mỗi lần thêm sửa xóa bảng Chitietphieunhap
@@ -320,46 +319,87 @@ Cập nhập lại bảng Hang: Hangtonkho = hangtonkho + soluongnhap(chitietphi
 Mỗi lần thêm sửa xóa bảng Chitiethoadon
 Cập nhập lại bảng Hang: Hangtonkho = hangtonkho - soluongban(chitiethoadon)
 */
-
-CREATE TRIGGER trg_BanHang 
-ON CHITIET_HD 
-AFTER INSERT 
-AS 
-BEGIN
-	UPDATE HANG
-	SET HangTonKho = HangTonKho - (
-		SELECT SoLuongBan
-		FROM inserted
-		WHERE MaH = HANG.MaH
-	)
-	FROM HANG
-	JOIN inserted ON HANG.MaH = inserted.MaH
-END
-GO
-
-
-Alter TRIGGER trg_HuyBanHang 
-ON CHITIET_HD 
-FOR DELETE AS 
-BEGIN
-	UPDATE HANG
-	SET HangTonKho = HangTonKho + (
-		SELECT SoLuongBan
-		FROM deleted
-		WHERE MaH = HANG.MaH
-	)
-	FROM HANG
-	JOIN deleted  ON HANG.MaH = deleted.MaH
-END
-
-CREATE TRIGGER trg_CapNhatDatHang on CHITIET_HD after update AS
-BEGIN
-   UPDATE HANG SET HangTonKho = HangTonKho -
-	   (SELECT SoLuongBan FROM inserted WHERE MaH = HANG.MaH) +
-	   (SELECT SoLuongBan FROM deleted WHERE MaH = HANG.MaH)
-   FROM HANG 
-   JOIN deleted ON HANG.MaH = deleted.MaH
+--1.
+go
+create trigger trg_CTPN_HTKIns
+on CHITIET_PN
+after insert 
+as
+begin
+	update HANG
+	set HangTonKho = HangTonKho + (select SoLuongNhap from inserted where MaH = HANG.MaH)
+	from HANG join inserted on HANG.MaH = inserted.MaH
 end
+go
+
+create trigger trg_CTPN_HTKDel
+on CHITIET_HD 
+after delete
+as 
+begin
+	update HANG
+	set HangTonKho = HangTonKho - (select SoLuongBan from deleted where MaH = HANG.MaH)
+	from HANG join deleted on HANG.MaH = deleted.MaH
+end
+go
+
+create trigger trg_CTPN_HTKUpd
+on CHITIET_PN 
+after update
+as
+begin
+   update HANG 
+   set HangTonKho = HangTonKho + 
+					(select SoLuongNhap from inserted where MaH = HANG.MaH) -
+					(select SoLuongNhap from deleted where MaH = HANG.MaH)
+   from HANG join deleted on HANG.MaH = deleted.MaH
+end
+go
+--thử
+update CHITIET_PN
+set SoLuongNhap = 5
+where MaH = 'H0001'
+
+select * from HANG
+select * from CHITIET_PN
+
+--2.
+go
+create trigger trg_BanHang 
+on CHITIET_HD 
+after insert 
+as 
+begin
+	update HANG
+	set HangTonKho = HangTonKho - (select SoLuongBan from inserted where MaH = HANG.MaH)
+	from HANG join inserted on HANG.MaH = inserted.MaH
+end
+go
+
+
+create trigger trg_HuyBanHang 
+on CHITIET_HD 
+after delete
+as
+begin
+	update HANG
+	set HangTonKho = HangTonKho + (select SoLuongBan from deleted where MaH = HANG.MaH)
+	from HANG join deleted  on HANG.MaH = deleted.MaH
+end
+
+go
+create trigger trg_CapNhatDatHang 
+on CHITIET_HD 
+after update 
+as
+begin
+   update HANG 
+   set HangTonKho = HangTonKho -
+					(select SoLuongBan from inserted where MaH = HANG.MaH) +
+					(select SoLuongBan from deleted where MaH = HANG.MaH)
+   from HANG join deleted on HANG.MaH = deleted.MaH
+end
+
 
 
 
