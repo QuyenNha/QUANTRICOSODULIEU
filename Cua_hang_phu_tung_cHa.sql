@@ -75,12 +75,12 @@ go
 --Tao bang Chi tiet Hoa don
 create table CHITIET_HD 
 (
-	MaHD	char(5), 
+	MaCTHD	char(5), 
 	MaH		char(5), 
 	SoLuongBan int not null, 
 	ThanhTien numeric(15,0),
-	primary key(MaHD, MaH),
-	foreign key(MaHD)references HOADON,
+	primary key(MaCTHD, MaH),
+	foreign key(MaCTHD)references HOADON(MaHD),
 	foreign key(MaH) references HANG 
 )
 go
@@ -115,12 +115,12 @@ go
 --Tao bang Chi tiet Phieu nhap
 create table CHITIET_PN 
 (
-	MaPNH	char(5),
+	MaCTPNH	char(5),
 	MaH		char(5) not null,
 	SoLuongNhap int not null,
 	ThanhTien numeric(15,0),
-	primary key(MaPNH, MaH),
-	foreign key(MaPNH) references PHIEUNHAP,
+	primary key(MaCTPNH, MaH),
+	foreign key(MaCTPNH) references PHIEUNHAP(MaPNH),
 	foreign key(MaH) references HANG
 )
 go
@@ -211,26 +211,27 @@ insert into HOADON (MaHD,MaKH,MaNV,NgayBan) values ('HD018','KH014','NV003','202
 insert into HOADON (MaHD,MaKH,MaNV,NgayBan) values ('HD019','KH016','NV001','2021/10/11')
 insert into HOADON (MaHD,MaKH,MaNV,NgayBan) values ('HD020','KH020','NV004','2021/11/11')
 
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD001','H0006',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD002','H0006',3)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD003','H0010',1)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD004','H0009',1)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD005','H0008',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD006','H0003',3)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD007','H0001',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD008','H0004',1)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD009','H0005',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD010','H0002',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD011','H0017',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD012','H0020',3)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD013','H0021',1)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD014','H0025',3)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD015','H0008',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD016','H0015',3)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD017','H0011',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD018','H0014',1)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD019','H0018',2)
-insert into CHITIET_HD (MaHD,MaH,SoLuongBan) values ('HD020','H0022',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD001','H0006',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD002','H0006',3)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD003','H0010',1)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD003','H0011',1)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD004','H0009',1)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD005','H0008',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD006','H0003',3)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD007','H0001',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD008','H0004',1)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD009','H0005',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD010','H0002',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD011','H0017',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD012','H0020',3)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD013','H0021',1)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD013','H0025',3)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD015','H0008',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD016','H0015',3)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD017','H0011',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD018','H0014',1)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD019','H0018',2)
+insert into CHITIET_HD (MaCTHD,MaH,SoLuongBan) values ('HD020','H0022',2)
 
 insert into NHACC values ('NCC01',N'Công ty CP Đầu tư TM và DV ô tô Liên Việt','0918340288',N'Lô số 1 CCN Lai Xá, Kim Chung, Hoài Đức, Hà Nội')
 insert into NHACC values ('NCC02',N'Công ty TNHH Thương mại và dịch vụ Dương Duy','0903874225',N'212A3 Nguyễn Trãi, Nguyễn Cư Trinh, Quận 1, Hồ Chí Minh')
@@ -254,22 +255,25 @@ insert into PHIEUNHAP (MaPNH,MaNV,MaNCC,NgayNhap) values ('PN013','NV001','NCC04
 insert into PHIEUNHAP (MaPNH,MaNV,MaNCC,NgayNhap) values ('PN014','NV003','NCC03','2021/05/05')
 insert into PHIEUNHAP (MaPNH,MaNV,MaNCC,NgayNhap) values ('PN015','NV002','NCC02','2020/01/24')
 
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN001','H0001',5)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN002','H0002',7)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN003','H0003',6)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN004','H0004',8)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN005','H0005',6)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN006','H0006',5)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN007','H0009',7)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN008','H0010',8)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN009','H0011',5)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN010','H0012',6)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN011','H0008',5)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN012','H0007',7)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN013','H0013',8)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN014','H0021',5)
-insert into CHITIET_PN (MaPNH,MaH,SoLuongNhap) values ('PN015','H0014',6)
-
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN001','H0001',5)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN001','H0002',7)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN002','H0003',6)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN002','H0004',8)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN003','H0005',6)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN003','H0006',5)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN004','H0009',7)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN005','H0010',8)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN006','H0010',8)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN007','H0010',8)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN008','H0010',8)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN009','H0011',5)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN010','H0010',8)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN011','H0012',6)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN011','H0008',5)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN012','H0007',7)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN013','H0013',8)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN014','H0021',5)
+insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN015','H0014',6)
 
 select * from HANG
 select * from KHACHHANG
@@ -298,18 +302,18 @@ select * from CHITIET_PN
 --Update cot VAT bang Phieu nhap
 update PHIEUNHAP
 set VAT = 0.1 * ThanhTien
-from PHIEUNHAP join CHITIET_PN on PHIEUNHAP.MaPNH = CHITIET_PN.MaPNH
+from PHIEUNHAP join CHITIET_PN on PHIEUNHAP.MaPNH = CHITIET_PN.MaCTPNH
 select * from PHIEUNHAP
 
 --Update cot Tong tien bang Phieu nhap
 update PHIEUNHAP
 set TongTien = ThanhTien + VAT
-from PHIEUNHAP join CHITIET_PN on PHIEUNHAP.MaPNH = CHITIET_PN.MaPNH
+from PHIEUNHAP join CHITIET_PN on PHIEUNHAP.MaPNH = CHITIET_PN.MaCTPNH
 select * from PHIEUNHAP
 
 --Tao Index--
 Create NonClustered Index idx_TenKH on KHACHHANG(TenKH)
-Create NonClustered Index idx_MaHD on CHITIET_HD(MaHD)
+Create NonClustered Index idx_MaHD on CHITIET_HD(MaCTHD)
 
 --Tạo trigger
 /*1.Trigger ở bảng Chitietphieunhap
@@ -388,6 +392,7 @@ begin
 end
 
 go
+
 create trigger trg_CapNhatDatHang 
 on CHITIET_HD 
 after update 
