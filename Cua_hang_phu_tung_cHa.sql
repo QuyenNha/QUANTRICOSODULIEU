@@ -337,12 +337,12 @@ end
 go
 
 create trigger trg_CTPN_HTKDel
-on CHITIET_HD 
+on CHITIET_PN
 after delete
 as 
 begin
 	update HANG
-	set HangTonKho = HangTonKho - (select SoLuongBan from deleted where MaH = HANG.MaH)
+	set HangTonKho = HangTonKho - (select SoLuongNhap from deleted where MaH = HANG.MaH)
 	from HANG join deleted on HANG.MaH = deleted.MaH
 end
 go
@@ -379,7 +379,6 @@ begin
 	from HANG join inserted on HANG.MaH = inserted.MaH
 end
 go
-
 
 create trigger trg_HuyBanHang 
 on CHITIET_HD 
