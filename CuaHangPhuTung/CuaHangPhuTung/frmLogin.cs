@@ -17,7 +17,7 @@ namespace CuaHangPhuTung
         {
             InitializeComponent();
         }
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-9QSGK01;Initial Catalog=CHPT;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-EFQDFTG\SQLEXPRESS;Initial Catalog=CHPT;Integrated Security=True");
         private void button1_Click(object sender, EventArgs e)
         {
             conn.Open();

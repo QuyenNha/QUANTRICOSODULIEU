@@ -52,11 +52,7 @@ namespace CuaHangPhuTung
             frmNhanVien nhanvien = new frmNhanVien();
             nhanvien.Show();
         }
-        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmTaiKhoan taikhoan = new frmTaiKhoan();
-            taikhoan.Show();
-        }
+
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();

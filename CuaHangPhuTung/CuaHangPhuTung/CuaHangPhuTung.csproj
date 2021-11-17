@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database.cs" />
     <Compile Include="frmHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,12 +93,6 @@
     <Compile Include="frmPhieuNhap.Designer.cs">
       <DependentUpon>frmPhieuNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTaiKhoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTaiKhoan.Designer.cs">
-      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmHang.resx">
@@ -123,9 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhieuNhap.resx">
       <DependentUpon>frmPhieuNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTaiKhoan.resx">
-      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

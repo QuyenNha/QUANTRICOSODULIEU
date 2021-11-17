@@ -36,12 +36,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -64,6 +64,7 @@
             this.button5.TabIndex = 13;
             this.button5.Text = "Khởi tạo";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -75,6 +76,7 @@
             this.button4.TabIndex = 12;
             this.button4.Text = "Tìm kiếm";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -86,6 +88,7 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "Xoá";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -97,6 +100,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -108,6 +112,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Thêm ";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -128,20 +133,21 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(814, 283);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
@@ -156,12 +162,12 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // textBox3
+            // textBox5
             // 
-            this.textBox3.Location = new System.Drawing.Point(312, 169);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(251, 29);
-            this.textBox3.TabIndex = 14;
+            this.textBox5.Location = new System.Drawing.Point(312, 169);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(251, 29);
+            this.textBox5.TabIndex = 14;
             // 
             // label7
             // 
@@ -179,12 +185,12 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(275, 29);
             this.dateTimePicker1.TabIndex = 12;
             // 
-            // textBox5
+            // textBox3
             // 
-            this.textBox5.Location = new System.Drawing.Point(379, 34);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(145, 29);
-            this.textBox5.TabIndex = 11;
+            this.textBox3.Location = new System.Drawing.Point(379, 34);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(145, 29);
+            this.textBox3.TabIndex = 11;
             // 
             // label5
             // 
@@ -195,12 +201,12 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Điện thoại";
             // 
-            // textBox6
+            // textBox4
             // 
-            this.textBox6.Location = new System.Drawing.Point(19, 107);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(342, 29);
-            this.textBox6.TabIndex = 9;
+            this.textBox4.Location = new System.Drawing.Point(19, 107);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(342, 29);
+            this.textBox4.TabIndex = 9;
             // 
             // label6
             // 
@@ -275,6 +281,7 @@
             this.Name = "frmNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý Nhân viên";
+            this.Load += new System.EventHandler(this.frmNhanVien_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -295,9 +302,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
@@ -306,6 +313,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
