@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button8 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -80,17 +77,14 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox3.Controls.Add(this.comboBox3);
-            this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.button7);
+            this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.numericUpDown1);
-            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.textBox8);
+            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.textBox6);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
@@ -102,97 +96,82 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             // 
-            // comboBox3
+            // button6
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(129, 35);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(120, 30);
-            this.comboBox3.TabIndex = 43;
+            this.button6.BackColor = System.Drawing.Color.Silver;
+            this.button6.Font = new System.Drawing.Font("UTM Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(386, 153);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 43);
+            this.button6.TabIndex = 50;
+            this.button6.Text = "Khởi tạo";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Silver;
             this.button4.Font = new System.Drawing.Font("UTM Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(171, 158);
+            this.button4.Location = new System.Drawing.Point(264, 153);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 43);
-            this.button4.TabIndex = 32;
-            this.button4.Text = "Tìm kiếm";
+            this.button4.TabIndex = 49;
+            this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox7
+            // numericUpDown1
             // 
-            this.textBox7.Location = new System.Drawing.Point(2, 165);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(149, 29);
-            this.textBox7.TabIndex = 33;
+            this.numericUpDown1.Location = new System.Drawing.Point(149, 35);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 29);
+            this.numericUpDown1.TabIndex = 48;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged_1);
             // 
-            // label16
+            // label4
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(-2, 140);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(118, 22);
-            this.label16.TabIndex = 34;
-            this.label16.Text = "Tìm kiếm theo ";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(302, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 22);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Đơn giá";
             // 
-            // button6
+            // textBox8
             // 
-            this.button6.BackColor = System.Drawing.Color.Silver;
-            this.button6.Font = new System.Drawing.Font("UTM Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(406, 158);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 43);
-            this.button6.TabIndex = 41;
-            this.button6.Text = "Khởi tạo";
-            this.button6.UseVisualStyleBackColor = false;
+            this.textBox8.Location = new System.Drawing.Point(306, 34);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(170, 29);
+            this.textBox8.TabIndex = 45;
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(6, 34);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(120, 30);
+            this.comboBox3.TabIndex = 43;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.Silver;
             this.button7.Font = new System.Drawing.Font("UTM Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(405, 59);
+            this.button7.Location = new System.Drawing.Point(149, 153);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 43);
             this.button7.TabIndex = 39;
             this.button7.Text = "Xoá";
             this.button7.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(260, 35);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 29);
-            this.numericUpDown1.TabIndex = 42;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Silver;
-            this.button8.Font = new System.Drawing.Font("UTM Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(405, 109);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 43);
-            this.button8.TabIndex = 37;
-            this.button8.Text = "Sửa";
-            this.button8.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.Silver;
             this.button9.Font = new System.Drawing.Font("UTM Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(405, 10);
+            this.button9.Location = new System.Drawing.Point(26, 153);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 43);
             this.button9.TabIndex = 35;
@@ -200,33 +179,18 @@
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(0, 35);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(120, 29);
-            this.textBox4.TabIndex = 38;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(-2, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 22);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Mã hóa đơn";
-            // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(129, 100);
+            this.textBox6.Location = new System.Drawing.Point(306, 105);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(120, 29);
+            this.textBox6.Size = new System.Drawing.Size(170, 29);
             this.textBox6.TabIndex = 31;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(127, 75);
+            this.label9.Location = new System.Drawing.Point(302, 80);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 22);
             this.label9.TabIndex = 30;
@@ -235,7 +199,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(256, 10);
+            this.label8.Location = new System.Drawing.Point(157, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(112, 22);
             this.label8.TabIndex = 29;
@@ -244,7 +208,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(125, 10);
+            this.label7.Location = new System.Drawing.Point(6, 10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 22);
             this.label7.TabIndex = 28;
@@ -259,7 +223,7 @@
             this.groupBox4.Size = new System.Drawing.Size(506, 310);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Danh sách chi tiết hoá đơn";
+            this.groupBox4.Text = "Chi tiết hoá đơn";
             // 
             // dataGridView2
             // 
@@ -345,6 +309,7 @@
             this.button10.TabIndex = 30;
             this.button10.Text = "Tìm kiếm";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // textBox3
             // 
@@ -372,6 +337,7 @@
             this.button5.TabIndex = 27;
             this.button5.Text = "Khởi tạo";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button3
             // 
@@ -383,6 +349,7 @@
             this.button3.TabIndex = 26;
             this.button3.Text = "Sửa";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -394,6 +361,7 @@
             this.button2.TabIndex = 25;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -405,6 +373,7 @@
             this.button1.TabIndex = 24;
             this.button1.Text = "Thêm ";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label10
             // 
@@ -428,6 +397,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(120, 29);
             this.textBox1.TabIndex = 12;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -435,6 +405,8 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(163, 29);
             this.textBox2.TabIndex = 11;
+            this.textBox2.Text = "0";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -548,16 +520,8 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -565,5 +529,10 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
     }
 }

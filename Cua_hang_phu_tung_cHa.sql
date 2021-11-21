@@ -71,7 +71,7 @@ create table HOADON
 	foreign key(MaNV) references NHANVIEN
 )
 go
-
+select * from HOADON
 --Tao bang Chi tiet Hoa don
 create table CHITIET_HD 
 (
@@ -299,11 +299,7 @@ set ThanhTien = SoLuongNhap * DonGiaNhap
 from CHITIET_PN join HANG on CHITIET_PN.MaH = HANG.MaH
 select * from CHITIET_PN
 
---Update cot VAT bang Phieu nhap
-update PHIEUNHAP
-set VAT = 0.1 * ThanhTien
-from PHIEUNHAP join CHITIET_PN on PHIEUNHAP.MaPNH = CHITIET_PN.MaCTPNH
-select * from PHIEUNHAP
+
 
 --Update cot Tong tien bang Phieu nhap
 update PHIEUNHAP
@@ -360,12 +356,7 @@ begin
 end
 go
 --thử
-update CHITIET_PN
-set SoLuongNhap = 5
-where MaH = 'H0001'
 
-select * from HANG
-select * from CHITIET_PN
 
 --2.
 go
@@ -405,8 +396,64 @@ begin
 end
 
 
+--Trigger TongCong Hoa Don
+Create trigger trg_TongcongHoaDon1
+on CHITIET_HD 
+after update,delete
+as
+begin
+   update HoaDon 
+   set Tongcong = (select SUM(ThanhTien) from CHITIET_HD where MaCTHD = deleted.MaCTHD)
+   from HOADON join deleted on HOADON.MaHD = deleted.MaCTHD
+end
+
+Create trigger trg_TongcongHoaDon2
+on CHITIET_HD 
+after insert
+as
+begin
+   update HoaDon 
+   set Tongcong = (select SUM(ThanhTien) from CHITIET_HD where MaCTHD = inserted.MaCTHD)
+   from HOADON join inserted on HOADON.MaHD = inserted.MaCTHD
+end
+
+
+--Trigger TongCong Hoa Don
+Create trigger trg_TongcongPN1
+on CHITIET_PN
+after update,delete
+as
+begin
+   update PHIEUNHAP 
+   set TongTien = (select SUM(ThanhTien) from CHITIET_PN where MaCTPNH = deleted.MaCTPNH)
+   from PHIEUNHAP join deleted on PHIEUNHAP.MaPNH = deleted.MaCTPNH
+
+   update PHIEUNHAP 
+   set TongCong = (Tongtien * VAT/100) + Tongtien;
+end
+
+Create trigger trg_TongcongPN2
+on CHITIET_PN
+after insert
+as
+begin
+   update PHIEUNHAP 
+   set TongTien = (select SUM(ThanhTien) from CHITIET_PN where MaCTPNH = inserted.MaCTPNH)
+   from PHIEUNHAP join inserted on PHIEUNHAP.MaPNH = inserted.MaCTPNH
+
+   update PHIEUNHAP 
+   set TongCong = (Tongtien * VAT/100) + Tongtien;
+end
 
 
 
+update PHIEUNHAP
+set VAT = 10
+update PHIEUNHAP
+set TongCong = (Tongtien * VAT/100) + Tongtien;
 
+
+ update HOADON 
+set TongCong = (select SUM(ThanhTien) from CHITIET_HD where MaCTHD = HOADON.MaHD)
+from HOADON join CHITIET_HD on HOADON.MaHD = CHITIET_HD.MaCTHD
 
