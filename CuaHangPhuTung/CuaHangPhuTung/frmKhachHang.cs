@@ -210,10 +210,9 @@ namespace CuaHangPhuTung
                 MessageBox.Show("Xảy ra lỗi trong quá trình kết nối DB!");
             }
             string sTenKH = textBox5.Text;
-            string sQuery = "select *from KHACHHANG Where TenKH = @TenKH";
+            string sQuery = "select *from KHACHHANG Where (TenKH) like (N'%" + sTenKH + "%')";
             SqlDataAdapter adapter = new SqlDataAdapter(sQuery, con);
             SqlCommand cmd = new SqlCommand(sQuery, con);
-            cmd.Parameters.AddWithValue("@TenKH", sTenKH);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);

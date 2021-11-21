@@ -63,6 +63,7 @@ namespace CuaHangPhuTung
             textBox2.Enabled = false;
             textBox8.Enabled = false;
             textBox6.Enabled = false;
+            textBox4.Enabled = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -82,7 +83,16 @@ namespace CuaHangPhuTung
             textBox6.Enabled = false;
             comboBox3.Enabled = false;
         }
-
+        private void ShowHangTonKho()
+        {
+            SqlConnection con = new SqlConnection(sCon); // khoi tao ket noi 
+            con.Open();
+            string Squery2 = "select MaH,HangTonKho from hang";
+            SqlDataAdapter adapter2 = new SqlDataAdapter(Squery2, con);
+            DataSet ds2 = new DataSet();
+            adapter2.Fill(ds2, "MaHang");
+            textBox4.Text = ds2.Tables["MaHang"].Rows[comboBox3.SelectedIndex]["HangTonKho"].ToString();
+        }
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(sCon); // khoi tao ket noi 
@@ -102,7 +112,7 @@ namespace CuaHangPhuTung
             textBox8.Text = ds1.Tables["MaHang"].Rows[comboBox3.SelectedIndex]["Dongiaban"].ToString();
             con.Close();// đóng kết nối 
 
-
+            ShowHangTonKho();
             int dongia = Convert.ToInt32(textBox8.Text);
             int soluong = Convert.ToInt16(numericUpDown1.Value);
             int tien = dongia * soluong;
@@ -270,10 +280,9 @@ namespace CuaHangPhuTung
                 MessageBox.Show("Xảy ra lỗi trong quá trình kết nối DB!");
             }
             string sMaHD = textBox3.Text;
-            string sQuery = "select *from HOADON Where MaHD = @MaHD";
+            string sQuery = "select *from HOADON Where (MaHD) like (N'%" + sMaHD + "%')";
             SqlDataAdapter adapter = new SqlDataAdapter(sQuery, con);
             SqlCommand cmd = new SqlCommand(sQuery, con);
-            cmd.Parameters.AddWithValue("@MaHD", sMaHD);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
@@ -338,6 +347,7 @@ namespace CuaHangPhuTung
                 {
                     MessageBox.Show("Xảy ra lỗi trong quá trình thêm mới!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                ShowHangTonKho();
                 Showbanghd();
                 Showbangchitiethd();
             }
@@ -404,6 +414,7 @@ namespace CuaHangPhuTung
             {
                 MessageBox.Show("Xảy ra lỗi trong quá trình sửa!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            ShowHangTonKho(); 
             Showbanghd();
             Showbangchitiethd();
         }

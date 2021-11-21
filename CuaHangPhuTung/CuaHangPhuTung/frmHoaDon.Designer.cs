@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -77,6 +79,8 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.numericUpDown1);
@@ -95,6 +99,23 @@
             this.groupBox3.Size = new System.Drawing.Size(506, 211);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(157, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 22);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Số lượng tồn";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(149, 105);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(120, 29);
+            this.textBox4.TabIndex = 51;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button6
             // 
@@ -303,7 +324,7 @@
             // 
             this.button10.BackColor = System.Drawing.Color.Silver;
             this.button10.Font = new System.Drawing.Font("UTM Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(386, 153);
+            this.button10.Location = new System.Drawing.Point(494, 153);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(100, 43);
             this.button10.TabIndex = 30;
@@ -313,7 +334,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(138, 160);
+            this.textBox3.Location = new System.Drawing.Point(238, 156);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(238, 29);
             this.textBox3.TabIndex = 29;
@@ -323,9 +344,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(18, 163);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(114, 22);
+            this.label15.Size = new System.Drawing.Size(214, 22);
             this.label15.TabIndex = 28;
-            this.label15.Text = "Tìm kiếm theo";
+            this.label15.Text = "Tìm kiếm theo mã hóa đơn";
             // 
             // button5
             // 
@@ -534,5 +555,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

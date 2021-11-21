@@ -71,7 +71,7 @@ create table HOADON
 	foreign key(MaNV) references NHANVIEN
 )
 go
-select * from HOADON
+
 --Tao bang Chi tiet Hoa don
 create table CHITIET_HD 
 (
@@ -275,12 +275,7 @@ insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN013','H0013',8)
 insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN014','H0021',5)
 insert into CHITIET_PN (MaCTPNH,MaH,SoLuongNhap) values ('PN015','H0014',6)
 
-select * from HANG
-select * from KHACHHANG
-select * from HOADON
-select * from LOAIHANG
-select * from PHIEUNHAP
-select * from CHITIET_PN
+
 
 --Update hàng tồn kho
 update Hang
@@ -299,27 +294,36 @@ set ThanhTien = SoLuongNhap * DonGiaNhap
 from CHITIET_PN join HANG on CHITIET_PN.MaH = HANG.MaH
 select * from CHITIET_PN
 
-
-
---Update cot Tong tien bang Phieu nhap
+-- Update VAT = 10
 update PHIEUNHAP
-set TongTien = ThanhTien + VAT
+set VAT = 10
+--Update cột tổng tiền của bảng phiếu nhập
+update PHIEUNHAP 
+set TongTien = (select SUM(ThanhTien) from CHITIET_PN where MaCTPNH = PHIEUNHAP.MaPNH)
 from PHIEUNHAP join CHITIET_PN on PHIEUNHAP.MaPNH = CHITIET_PN.MaCTPNH
+--Update tổng cộng của bảng phiếu nhập
+update PHIEUNHAP
+set TongCong = (Tongtien * VAT/100) + Tongtien;
+
+
+-- Update cột Tổng cộng của bảng hóa đơn
+update HOADON 
+set TongCong = (select SUM(ThanhTien) from CHITIET_HD where MaCTHD = HOADON.MaHD)
+from HOADON join CHITIET_HD on HOADON.MaHD = CHITIET_HD.MaCTHD
+--
+select * from HANG
+select * from KHACHHANG
+select * from HOADON
+select * from LOAIHANG
 select * from PHIEUNHAP
+select * from CHITIET_PN
 
 --Tao Index--
 Create NonClustered Index idx_TenKH on KHACHHANG(TenKH)
 Create NonClustered Index idx_MaHD on CHITIET_HD(MaCTHD)
 
---Tạo trigger
-/*1.Trigger ở bảng Chitietphieunhap
-Mỗi lần thêm sửa xóa bảng Chitietphieunhap
-Cập nhập lại bảng Hang: Hangtonkho = hangtonkho + soluongnhap(chitietphieunhap)
-2.Trigger ở bảng HoaDon
-Mỗi lần thêm sửa xóa bảng Chitiethoadon
-Cập nhập lại bảng Hang: Hangtonkho = hangtonkho - soluongban(chitiethoadon)
-*/
---1.
+-- Trigger thêm, sửa xóa  bảng chi tiết phiếu nhập
+-- Tự động update Hàng tồn kho 
 go
 create trigger trg_CTPN_HTKIns
 on CHITIET_PN
@@ -332,6 +336,7 @@ begin
 end
 go
 
+go
 create trigger trg_CTPN_HTKDel
 on CHITIET_PN
 after delete
@@ -343,6 +348,7 @@ begin
 end
 go
 
+go
 create trigger trg_CTPN_HTKUpd
 on CHITIET_PN 
 after update
@@ -355,10 +361,9 @@ begin
    from HANG join deleted on HANG.MaH = deleted.MaH
 end
 go
---thử
 
-
---2.
+-- Trigger thêm, sửa xóa  bảng chi tiết hóa đơn
+-- Tự động update Hàng tồn kho 
 go
 create trigger trg_BanHang 
 on CHITIET_HD 
@@ -371,6 +376,7 @@ begin
 end
 go
 
+go
 create trigger trg_HuyBanHang 
 on CHITIET_HD 
 after delete
@@ -380,10 +386,10 @@ begin
 	set HangTonKho = HangTonKho + (select SoLuongBan from deleted where MaH = HANG.MaH)
 	from HANG join deleted  on HANG.MaH = deleted.MaH
 end
-
 go
 
-create trigger trg_CapNhatDatHang 
+go
+Create trigger trg_CapNhatDatHang 
 on CHITIET_HD 
 after update 
 as
@@ -396,7 +402,7 @@ begin
 end
 
 
---Trigger TongCong Hoa Don
+-- Trigger tự động tính tổng cộng của bảng CHITIET_HD 
 Create trigger trg_TongcongHoaDon1
 on CHITIET_HD 
 after update,delete
@@ -418,7 +424,7 @@ begin
 end
 
 
---Trigger TongCong Hoa Don
+--Trigger tự động tính tổng cộng của bảng CHITIET_PN 
 Create trigger trg_TongcongPN1
 on CHITIET_PN
 after update,delete
@@ -446,14 +452,24 @@ begin
 end
 
 
+-- Trigger kiểm tra số lượng để bán
+Alter trigger ktsoluong 
+on CHITIET_HD
+for update, insert
+as
+begin
+	declare @a int
+	set @a = (select HangTonKho from Hang join inserted on Hang.MaH = inserted.MaH
+	where Hang.MaH = inserted.MaH)
+	if (@a < 0) 
+		begin
+			print N'Vượt quá số lượng hàng tồn kho!'
+			rollback
+		end
+end
 
-update PHIEUNHAP
-set VAT = 10
-update PHIEUNHAP
-set TongCong = (Tongtien * VAT/100) + Tongtien;
-
-
- update HOADON 
-set TongCong = (select SUM(ThanhTien) from CHITIET_HD where MaCTHD = HOADON.MaHD)
-from HOADON join CHITIET_HD on HOADON.MaHD = CHITIET_HD.MaCTHD
+select * from HOADON
+select * from PHIEUNHAP
+select  * from CHITIET_HD
+select * from HANG
 
