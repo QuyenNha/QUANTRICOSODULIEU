@@ -238,6 +238,7 @@ namespace CuaHangPhuTung
             textBox6.Text = "";
             textBox7.Text = "";
             textBox1.Enabled = true;
+            textBox9.Text = "";
             //Bước 1
             SqlConnection con = new SqlConnection(sCon);
             //Bước 2 - lấy dữ liệu về
@@ -393,7 +394,7 @@ namespace CuaHangPhuTung
         {
             textBox10.Text = "";
             textBox11.Text = "";
-
+            textBox12.Text = "";
             textBox10.Enabled = true;
             //Bước 1
             SqlConnection con = new SqlConnection(sCon);

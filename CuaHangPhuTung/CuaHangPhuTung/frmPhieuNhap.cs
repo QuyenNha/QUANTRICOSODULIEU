@@ -305,7 +305,7 @@ namespace CuaHangPhuTung
             textBox5.Text = "0";
             textBox6.Text = "0";
             textBox1.Enabled = true;
-
+            textBox7.Text = "";
 
             //
             comboBox3.Text = "";

@@ -187,6 +187,7 @@ namespace CuaHangPhuTung
             textBox3.Text = "";
             textBox4.Text = "";
             textBox1.Enabled = true;
+            textBox5.Text = "";
             //Bước 1
             SqlConnection con = new SqlConnection(sCon);
             //Bước 2 - lấy dữ liệu về

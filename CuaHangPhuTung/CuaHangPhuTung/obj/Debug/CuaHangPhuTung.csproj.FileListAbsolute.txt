@@ -29,7 +29,6 @@ C:\Users\Admin\Desktop\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug
 C:\Users\Admin\Desktop\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmPhieuNhap.resources
 C:\Users\Admin\Desktop\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.Properties.Resources.resources
 C:\Users\Admin\Desktop\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.csproj.GenerateResource.Cache
-C:\Users\Admin\Desktop\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmTaiKhoan.resources
 C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmLogin.resources
 C:\Users\trand\Documents\GitHub\QUANTRICOSODULIEU\CuaHangPhuTung\CuaHangPhuTung\obj\Debug\CuaHangPhuTung.frmTaiKhoan.resources
 C:\Users\trand\Desktop\CuaHangPhuTung\CuaHangPhuTung\bin\Debug\CuaHangPhuTung.exe.config

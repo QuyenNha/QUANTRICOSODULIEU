@@ -161,7 +161,7 @@ namespace CuaHangPhuTung
             string sDienThoai = textBox3.Text;
             string sDiaChi = textBox4.Text;
             string sNgaySinh = dateTimePicker1.Value.ToString("yyy-MM-dd");
-            string sQuery2 = "Update NHANVIEN Set TenNV  = @TenNV , DiaChi = @DiaChi, DienThoai = @DienThoai Where MaNV = @MaNV";
+            string sQuery2 = "Update NHANVIEN Set TenNV  = @TenNV , DiaChi = @DiaChi, DienThoai = @DienThoai, NgaySinh = @NgaySinh Where MaNV = @MaNV";
             SqlCommand cmd = new SqlCommand(sQuery2, con);
             cmd.Parameters.AddWithValue("@MaNV", sMaNV);
             cmd.Parameters.AddWithValue("@TenNV ", sTenNV);
@@ -192,6 +192,7 @@ namespace CuaHangPhuTung
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            textBox5.Text = "";
             dateTimePicker1.Value = new DateTime(2001, 1, 1);
             textBox1.Enabled = true;
             //Bước 1
