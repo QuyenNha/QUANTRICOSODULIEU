@@ -488,12 +488,12 @@ backup database CHPT to disk = 'F:\BACKUP\CHPT_Diff.bak' with init,  differentia
 --Tiếp tục thêm mới 1 bản ghi thứ 2 cho bảng HANG 
 insert into HANG values ('H0027',N'Gioăng',N'chiếc',N'Việt Nam',100,100000,130000,'LH001')
 
---Thực hiện transaction log backup vào các 2 thời điểm 10:26:00 và 10:41:00 ngày 26/11/2021
+--Thực hiện transaction log backup vào các 2 thời điểm 10:26:00 và 10:45:00 ngày 26/11/2021
 --10:26
 backup log CHPT to disk = 'F:\BACKUP\CHPT_Log.trn' with init
 
 --Tiếp tục thêm mới 1 bản ghi thứ 3 cho bảng HANG 
 insert into HANG values ('H0028',N'Gương chiếu hậu',N'chiếc',N'Việt Nam',100,100000,120000,'LH002')
 
---10:41
+--10:45
 backup log CHPT to disk = 'F:\BACKUP\CHPT_Log.trn'
