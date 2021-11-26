@@ -453,7 +453,7 @@ end
 
 
 -- Trigger kiểm tra số lượng để bán
-Alter trigger ktsoluong 
+create trigger ktsoluong 
 on CHITIET_HD
 for update, insert
 as
@@ -473,3 +473,27 @@ select * from PHIEUNHAP
 select  * from CHITIET_HD
 select * from HANG
 
+--Backup
+-- Full Backup --
+--Thực hiện full backup vào thời điểm 20:58:00 ngày 25/11/2021
+backup database CHPT to disk = 'F:\BACKUP\CHPT_Full.bak' with init 
+
+--Thêm mới 1 bản ghi cho bảng HANG 
+insert into HANG values ('H0026',N'Kính gió sau',N'tấm',N'Việt Nam',100,150000,165000,'LH005')
+
+-- Diferential Backup --
+--Thực hiện different backup vào thời điểm 8:15:00 ngày 26/11/2021
+backup database CHPT to disk = 'F:\BACKUP\CHPT_Diff.bak' with init,  differential
+
+--Tiếp tục thêm mới 1 bản ghi thứ 2 cho bảng HANG 
+insert into HANG values ('H0027',N'Gioăng',N'chiếc',N'Việt Nam',100,100000,130000,'LH001')
+
+--Thực hiện transaction log backup vào các 2 thời điểm 10:26:00 và 10:41:00 ngày 26/11/2021
+--10:26
+backup log CHPT to disk = 'F:\BACKUP\CHPT_Log.trn' with init
+
+--Tiếp tục thêm mới 1 bản ghi thứ 3 cho bảng HANG 
+insert into HANG values ('H0028',N'Gương chiếu hậu',N'chiếc',N'Việt Nam',100,100000,120000,'LH002')
+
+--10:41
+backup log CHPT to disk = 'F:\BACKUP\CHPT_Log.trn'
