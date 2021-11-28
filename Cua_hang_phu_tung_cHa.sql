@@ -497,3 +497,26 @@ insert into HANG values ('H0028',N'Gương chiếu hậu',N'chiếc',N'Việt Na
 
 --10:45
 backup log CHPT to disk = 'F:\BACKUP\CHPT_Log.trn'
+
+-- Mã hóa cột SĐT của Khách Hàng
+
+--1. Tạo cột để lưu dữ liệu đã được mã hóa
+Alter table KHACHHANG add
+[Encrypted DienThoai] varbinary(MAX)
+go
+--2. Cập nhật dữ liệu đã được mã hoá vào cột vừa tạo
+Update KHACHHANG
+set [Encrypted DienThoai] = EncryptByPassPhrase('DienThoai', convert(varchar(100),[DienThoai]) )
+go
+
+--3. Xoá bỏ cột chứa dữ liệu chưa được mã hoá
+alter table [KHACHHANG] drop column [DienThoai]
+go
+
+--4. Truy vẫn bảng bằng các lệnh sau
+select * from KHACHHANG
+ 
+--5. Giải mã dữ liệu
+Select MaKH, TenKH, DiaChi,convert(varchar,convert(varchar(100),decryptbypassphrase('DienThoai',[Encrypted DienThoai]))) 
+as [DienThoai]
+from KHACHHANG
