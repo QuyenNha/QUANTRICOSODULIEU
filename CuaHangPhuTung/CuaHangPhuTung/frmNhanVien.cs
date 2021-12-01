@@ -217,10 +217,11 @@ namespace CuaHangPhuTung
             {
                 MessageBox.Show("Xảy ra lỗi trong quá trình kết nối DB!");
             }
-            string sTenNV = textBox5.Text;
-            string sQuery = "select *from NHANVIEN Where (TenNV) like (N'%" + sTenNV + "%')";
+            string sTenNV = "%" + textBox5.Text + "%";
+            string sQuery = "select *from NHANVIEN Where (TenNV) like (@TenNV)";
             SqlDataAdapter adapter = new SqlDataAdapter(sQuery, con);
             SqlCommand cmd = new SqlCommand(sQuery, con);
+            cmd.Parameters.AddWithValue("@TenNV", sTenNV);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);

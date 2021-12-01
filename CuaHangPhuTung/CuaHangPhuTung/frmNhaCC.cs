@@ -209,10 +209,11 @@ namespace CuaHangPhuTung
             {
                 MessageBox.Show("Xảy ra lỗi trong quá trình kết nối DB!");
             }
-            string sTenNCC = textBox5.Text;
-            string sQuery = "select *from NHACC Where (TenNCC) like (N'%" + sTenNCC + "%')";
+            string sTenNCC = "%" + textBox5.Text + "%";
+            string sQuery = "select *from NHACC Where (TenNCC) like (@TenNCC)";
             SqlDataAdapter adapter = new SqlDataAdapter(sQuery, con);
             SqlCommand cmd = new SqlCommand(sQuery, con);
+            cmd.Parameters.AddWithValue("@TenNCC", sTenNCC);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);

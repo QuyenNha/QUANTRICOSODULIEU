@@ -285,10 +285,11 @@ namespace CuaHangPhuTung
             {
                 MessageBox.Show("Xảy ra lỗi trong quá trình kết nối DB!");
             }
-            string sMaPNH = textBox7.Text;
-            string sQuery = "select *from PHIEUNHAP Where (MaPNH) like (N'%" + sMaPNH + "%')";
+            string sMaPNH = "%" + textBox7.Text + "%";
+            string sQuery = "select *from PHIEUNHAP Where (MaPNH) like (@MaPNH)";
             SqlDataAdapter adapter = new SqlDataAdapter(sQuery, con);
             SqlCommand cmd = new SqlCommand(sQuery, con);
+            cmd.Parameters.AddWithValue("@MaPNH", sMaPNH);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);

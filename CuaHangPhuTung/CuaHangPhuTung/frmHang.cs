@@ -261,10 +261,11 @@ namespace CuaHangPhuTung
             {
                 MessageBox.Show("Xảy ra lỗi trong quá trình kết nối DB!");
             }
-            string sTenH = textBox9.Text;
-            string sQuery = "select *from HANG Where (TenH) like (N'%" + sTenH + "%')";
+            string sTenH = "%" + textBox9.Text + "%";
+            string sQuery = "select *from HANG Where (TenH) like (@TenH)";
             SqlDataAdapter adapter = new SqlDataAdapter(sQuery, con);
             SqlCommand cmd = new SqlCommand(sQuery, con);
+            cmd.Parameters.AddWithValue("@TenH", sTenH);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
@@ -418,10 +419,11 @@ namespace CuaHangPhuTung
             {
                 MessageBox.Show("Xảy ra lỗi trong quá trình kết nối DB!");
             }
-            string sTenLH = textBox12.Text;
-            string sQuery = "select *from LOAIHANG  Where (TenLH) like (N'%" + sTenLH + "%')";
+            string sTenLH = "%" + textBox12.Text + "%";
+            string sQuery = "select *from LOAIHANG  Where (TenLH) like (@TenLH)";
             SqlDataAdapter adapter = new SqlDataAdapter(sQuery, con);
             SqlCommand cmd = new SqlCommand(sQuery, con);
+            cmd.Parameters.AddWithValue("@TenLH", sTenLH);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);

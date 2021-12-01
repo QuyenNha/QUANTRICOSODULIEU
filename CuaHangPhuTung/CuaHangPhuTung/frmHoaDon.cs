@@ -279,10 +279,11 @@ namespace CuaHangPhuTung
             {
                 MessageBox.Show("Xảy ra lỗi trong quá trình kết nối DB!");
             }
-            string sMaHD = textBox3.Text;
-            string sQuery = "select *from HOADON Where (MaHD) like (N'%" + sMaHD + "%')";
+            string sMaHD = "%" + textBox3.Text + "%";
+            string sQuery = "select *from HOADON Where (MaHD) like (@MaHD)";
             SqlDataAdapter adapter = new SqlDataAdapter(sQuery, con);
             SqlCommand cmd = new SqlCommand(sQuery, con);
+            cmd.Parameters.AddWithValue("@MaHD", sMaHD);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
