@@ -29,7 +29,7 @@ namespace CuaHangPhuTung
 
         private Database()
         {
-            string stringConnect = @"Data Source=DESKTOP-EFQDFTG\SQLEXPRESS;Initial Catalog=CHPT;Integrated Security=True";
+            string stringConnect = @"Data Source=DESKTOP-9QSGK01;Initial Catalog=CHPT;Integrated Security=True";
             this.connect = new SqlConnection(stringConnect);
         }
 

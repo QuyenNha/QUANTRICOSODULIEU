@@ -13,7 +13,7 @@ namespace CuaHangPhuTung
 {
     public partial class frmHoaDon : Form
     {
-        string sCon = @"Data Source=DESKTOP-EFQDFTG\SQLEXPRESS;Initial Catalog=CHPT;Integrated Security=True";
+        string sCon = @"Data Source=DESKTOP-9QSGK01;Initial Catalog=CHPT;Integrated Security=True";
         public frmHoaDon()
         {
             InitializeComponent();

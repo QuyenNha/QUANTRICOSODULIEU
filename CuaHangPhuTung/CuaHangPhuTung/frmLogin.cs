@@ -17,39 +17,25 @@ namespace CuaHangPhuTung
         {
             InitializeComponent();
         }
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-EFQDFTG\SQLEXPRESS;Initial Catalog=CHPT;Integrated Security=True");
+        //ta Source=DESKTOP-9QSGK01;Initial Catalog=CHPT;Integrated Security=True
+        SqlConnection getCon(string user, string pass)
+        {
+            return new SqlConnection("Data Source=DESKTOP-9QSGK01; Initial Catalog=CHPT; User ID =" + txtTaiKhoan.Text + ";Password=" + txtMatKhau.Text + ";");
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            conn.Open();
+            SqlConnection con = getCon(txtTaiKhoan.Text, txtMatKhau.Text);
             try
             {
-                string taikhoan = txtTaiKhoan.Text;
-                string matkhau = txtMatKhau.Text;
-                //lay du lieu tu bang
-                string query = "Select * from TAIKHOAN where TaiKhoan = '" + taikhoan + "' and MatKhau = '" + matkhau + "'";
-                //bat dau truy van
-                SqlCommand cmd = new SqlCommand(query, conn);
-                //doc du lieu
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read()==true)
-                {
-                    FrmMain frmMain = new FrmMain();
-                    frmMain.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Sai tên tài khoản hoặc mật khẩu. Vui lòng kiểm tra lại!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtTaiKhoan.Text = "";
-                    txtMatKhau.Text = "";
-                }
+                con.Open();
+                FrmMain frmMain = new FrmMain();
+                frmMain.Show();
+                this.Hide();
             }
-            catch (Exception)
+            catch(Exception)
             {
-                MessageBox.Show("Lỗi kết nối!");
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
             }
-            //dong ket noi
-            conn.Close();;
         }
         private void button2_Click(object sender, EventArgs e)
         {
