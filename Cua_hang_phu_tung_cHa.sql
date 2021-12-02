@@ -454,7 +454,7 @@ end
 
 select * from HOADON
 select * from PHIEUNHAP
-select  * from CHITIET_HD
+select * from CHITIET_HD
 select * from HANG
 
 --Backup
@@ -478,8 +478,3 @@ backup log CHPT to disk = 'F:\BACKUP\CHPT_Log.trn' with init
 
 --Tiếp tục thêm mới 1 bản ghi thứ 3 cho bảng HANG 
 insert into HANG values ('H0028',N'Gương chiếu hậu',N'chiếc',N'Việt Nam',100,100000,120000,'LH002')
-
---10:45
-backup log CHPT to disk = 'F:\BACKUP\CHPT_Log.trn'
-
-
